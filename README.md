@@ -1,8 +1,5 @@
 # GraSS
 
-GraSorw is a disk-based graph processing system designed for scalable second-order random walk tasks. 
-
-
 ## Environment and Dependency
 This code is developed and tested on:
 * Ubuntu 20.04
