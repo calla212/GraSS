@@ -49,7 +49,7 @@ Two executable files should be generated in this folder.
 
 ```./compressor <input_path> <output_path>```
 
-Two files `*.offset` `*.graph` are generated.
+Two files ***.offset** ***.graph** are generated.
 
 ### Execution
 To run the sampling, enter the `bin` folder.
@@ -60,6 +60,6 @@ For example, if the **sample.cgr.graph** and **sample.cgr.offset** are located i
 
 ```./rw DIR_PATH/sample.cgr```.
 
-The parameter <run_time> is default as 1.
+The parameter **<run_time>** is default as 1.
 
 The other parameters about the graph sampling can be modified in the source code in `./src/app/*`.
