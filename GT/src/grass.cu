@@ -33,7 +33,7 @@ typedef VertexID VertexID_t;
 
 #include "utils.hpp"
 #include "rand_num_gen.cuh"
-#include "libNextDoor.hpp"
+#include "lib.hpp"
 
 using namespace utils;
 using namespace GPUUtils;

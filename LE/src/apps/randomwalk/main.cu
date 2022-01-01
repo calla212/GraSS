@@ -1,4 +1,4 @@
-#include <libNextDoor.hpp>
+#include <lib.hpp>
 #include <main.cu>
 #include "randomWalks.cu"
 
