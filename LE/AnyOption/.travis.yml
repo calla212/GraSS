@@ -1,0 +1,33 @@
+language: cpp 
+os:
+  - linux
+  - osx
+complier:
+  - gcc 
+addons:
+  apt:
+    packages:
+      - valgrind
+      - cppcheck
+      - make
+      - cmake
+      - lcov
+      - doxygen
+      - help2man
+script:
+  - g++ -g -Wall -Wextra -Werror anyoption.cpp demo.cpp -o demo
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all ./demo ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cppcheck --error-exitcode=1 --enable=warning,performance,information,style *.cpp *.h ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget -q https://github.com/catchorg/Catch2/releases/download/v2.2.3/catch.hpp ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then g++ -g -o0 -coverage -std=c++11 -Wall -Wextra -Werror test.cpp anyoption.cpp -o test ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then valgrind --error-exitcode=1 --leak-check=full --show-leak-kinds=all ./test ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then lcov --directory . --capture --output-file coverage.info ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then lcov --remove coverage.info 'catch.hpp' '/usr/*' --output-file coverage.info ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then lcov --list coverage.info ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then uname -a ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then g++ --version ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then valgrind --version ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cppcheck --version ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then lcov --version ; fi
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
