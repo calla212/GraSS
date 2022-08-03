@@ -9,25 +9,6 @@ This code is developed and tested on:
 
 ## Quick Start
 
-### Dataset preparation
-
-To download the test dataset, in the project root folder, do:
-
-```
-mkdir datasets
-cd datasets
-wget https://snap.stanford.edu/data/soc-LiveJournal1.txt.gz
-gzip -d soc-LiveJournal1.txt.gz
-cd ..
-```
-
-Use the following command to generate an undirected version of this graph:
-
-```
-build/Convert2Undir datasets/soc-LiveJournal1.txt
-```
-
-
 ### Build
 To build this, use ```make``` in folder `LE` or `GT`.
 
