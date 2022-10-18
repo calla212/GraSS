@@ -1,5 +1,8 @@
 # GraSS
 
+## Paper
+[Scalable Graph Sampling on GPUs with Compressed Graph](https://dl.acm.org/doi/10.1145/3511808.3557443)
+
 ## Environment and Dependency
 This code is developed and tested on:
 * Ubuntu 20.04
